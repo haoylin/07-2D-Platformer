@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var stomp_area: Area2D = $StompArea2D
 export var gravity: = 4000.0
 export var speed: = Vector2(300.0, 1000.0)
 var FLOOR_NORMAL = Vector2.UP
@@ -14,5 +15,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall():
 		velocity.x *= -1.0
 	velocity.y = move_and_slide(velocity,FLOOR_NORMAL).y
+
+
 
 

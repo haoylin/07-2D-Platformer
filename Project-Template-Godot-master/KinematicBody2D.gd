@@ -5,14 +5,17 @@ const speed = 200
 const gravity = 20
 const UP = Vector2(0,-1)
 var motion = Vector2()
-export var score = 0
-signal score_changed
+onready var Bullet = load("res://Bullets.tscn")
 
-func _ready():
-	emit_signal("score_changed")
 
 func _physics_process(delta):
 	motion.y += gravity
+	if Input.is_action_pressed("fire"):
+		var b = Bullet.instance()
+		b.position = position
+		b.position.y -= 296
+		b.position.x -= 460
+		get_node("/root/Game/Bullet").fire(b)
 	
 	if Input.is_action_pressed("ui_right"):
 		motion.x = speed
@@ -28,16 +31,4 @@ func _physics_process(delta):
 	motion = move_and_slide(motion,UP)
 	pass
 	
-func SavePressed():
-	get_node("/root/SaveSystem").saveValue("Values", "ValueOne")
 
-func LoadPressed():
-	get_node("/root/SaveSystem").loadValue("Values", "ValueOne")
-
-
-func _on_Save_pressed():
-	pass
-
-
-func _on_Load_pressed():
-	pass # Replace with function body.
