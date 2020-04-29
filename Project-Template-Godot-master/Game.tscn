@@ -15,11 +15,10 @@
 [ext_resource path="res://Bullet.gd" type="Script" id=13]
 [ext_resource path="res://Bullets.gd" type="Script" id=14]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=1]
 radius = 18.6566
 
-[sub_resource type="Animation" id=1]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=2]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -2072,7 +2071,7 @@ polygon = PoolVector2Array( 100, 93, -100, 93, -100, -93, 100, -93 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/StompArea2D"]
 position = Vector2( 565.381, 408.684 )
 scale = Vector2( 2, 2 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Enemy2" type="KinematicBody2D" parent="."]
 position = Vector2( 138.504, -467.59 )
@@ -2112,7 +2111,7 @@ scale = Vector2( 0.119554, 0.0765087 )
 texture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pill"]
-"anims/New Anim" = SubResource( 1 )
+"anims/New Anim" = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pill"]
 position = Vector2( 215.481, 71.31 )
